@@ -19,8 +19,6 @@ define ( 'APP_PATH', './Application/' );
  * 系统调试设置
  * 项目正式部署后请设置为false
  */
-//define('DE', '');//
-
 define ( 'APP_DEBUG', true );
 
 if(!is_file(APP_PATH . 'User/Conf/config.php')){
