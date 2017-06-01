@@ -91,24 +91,22 @@ class ArticleController extends HomeController {
 	private function category($id = 0){
 		/* 标识正确性检测 */
 		$id = $id ? $id : I('get.category', 0);
-		if(empty($id)){
-			$this->error('没有指定文档分类！');
-		}
 
 		/* 获取分类信息 */
-		$category = D('Category')->info($id);
-		if($category && 1 == $category['status']){
-			switch ($category['display']) {
-				case 0:
-					$this->error('该分类禁止显示！');
-					break;
-				//TODO: 更多分类显示状态判断
-				default:
-					return $category;
-			}
-		} else {
-			$this->error('分类不存在或被禁用！');
-		}
+		$model = D('Category');
+        $category = $model->info($id);
+        if($category && 1 == $category['status']){
+            switch ($category['display']) {
+                case 0:
+                    $this->error('该分类禁止显示！');
+                    break;
+                //TODO: 更多分类显示状态判断
+                default:
+                    return $category;
+            }
+        } else {
+            $this->error('分类不存在或被禁用！');
+        }
 	}
 
 }
