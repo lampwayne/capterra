@@ -31,6 +31,16 @@ class CategoryModel extends Model{
 		array('status', '1', self::MODEL_BOTH),
 	);
 
+    /**
+     * 获取热门分类
+     * @return mixed
+     */
+    public function getHot(){
+        $map = array();
+
+        $order = ' sort DESC ';
+        return $this->where($map)->order($order)->select();
+    }
 
 	/**
 	 * 获取分类详细信息

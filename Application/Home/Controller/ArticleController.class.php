@@ -15,6 +15,35 @@ namespace Home\Controller;
  */
 class ArticleController extends HomeController {
 
+    /**
+     * 分类列表页
+     */
+    public function catelist(){
+        $model = D('Category');
+        $res = $model->getTree();
+        $hotlist = $model->getHot();
+
+        $catelist = array();
+        if($res){
+            $hotTotal = 0;
+            foreach ($res as $v){
+                $cKey = strtoupper(substr($v['name'], 0, 1));
+                if(is_numeric($cKey)){
+                    $cKey = '#';
+                }
+
+                //分类加首字母索引
+                $catelist[$cKey][] = $v;
+            }
+
+            ksort($catelist);
+        }
+
+        $this->assign('catelist', $catelist);
+        $this->assign('hotlist', $hotlist);
+        $this->display();
+    }
+
     /* 文档模型频道页 */
 	public function index(){
 		/* 分类信息 */
@@ -32,17 +61,11 @@ class ArticleController extends HomeController {
 	public function lists($p = 1){
 		/* 分类信息 */
 		$category = $this->category();
-
-		/* 获取当前分类列表 */
-		$Document = D('Document');
-		$list = $Document->page($p, $category['list_row'])->lists($category['id']);
-		if(false === $list){
-			$this->error('获取列表数据失败！');
-		}
+        $list = $this->getlists($category['id']);
 
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
-		$this->assign('list', $list);
+		$this->assign('lists', $list);
 		$this->display($category['template_lists']);
 	}
 
@@ -83,9 +106,29 @@ class ArticleController extends HomeController {
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
 		$this->assign('info', $info);
-		$this->assign('page', $p); //页码
+		$this->assign('page', $p); //页码Article/article/detail
 		$this->display($tmpl);
 	}
+
+    /* 获取当前分类文档列表 */
+	private function getlists($category){
+	    $service_rate = I('get.service_rate');//应用评分
+	    $service_rate = I('get.service_rate');//用户数
+	    $service_rate = I('get.service_rate');//安装方式
+	    $service_rate = I('get.service_rate');//功能
+
+        $Document = D('Document');
+
+        $map = array('category_id'=>$category);
+        if($service_rate) $map['service_rate'] = array('egt', $service_rate);
+
+        $list = $Document->where($map)->select($category['id']);
+        if(false === $list){
+            $this->error('获取列表数据失败！');
+        }
+
+        return $list;
+    }
 
 	/* 文档分类检测 */
 	private function category($id = 0){
