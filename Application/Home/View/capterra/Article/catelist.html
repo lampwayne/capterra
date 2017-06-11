@@ -15,9 +15,10 @@
           <div class="cell  two-thirds  portable-one-whole">
             <label class="epsilon  weight-semibold" for="category_search">您要找什么商业软件或服务?</label>
             <div class="alert  alert-info">
-              <input id="category_search" type="search" name="search" class="text-input" autofocus/>
+              <input id="category_search" type="search" name="search" value="{$keyword}" class="text-input" autofocus/>
             </div>
             <div class="browse  base-margin-bottom">
+              <if condition="!empty($numcatelist) || !empty($catelist)">
               <div class="grid">
                 <notempty name="numcatelist">
                 <div class="cell  one-whole">
@@ -60,12 +61,14 @@
                   </div>
                 </volist>
               </div>
-              <div id="browse-no-results" class="hide">
+                <else/>
+              <div id="browse-no-results">
                 <p>
                   <span class="epsilon  weight-semibold">没有找到您需要的软件或服务分类</span>
                   <br>请检查您输入，如果您找不到需要的分类， <a href="mailto:categories@capterra.com">请联系我们！</a>
                 </p>
               </div>
+              </if>
             </div>
           </div>
           <div class="cell  one-third  portable-one-whole">
@@ -91,7 +94,8 @@
               var keyword = $(this).val();
 
               if(keyword){
-                  window.location.href = window.location.href + '?keyword=' + keyword;
+                  var jumpUrl = '/index.php?s=/Home/Article/catelist/keyword/' + keyword + '.html';
+                  window.location.href = jumpUrl;
               }
           }
       });

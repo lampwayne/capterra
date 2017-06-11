@@ -4,7 +4,8 @@
         <div class="grid">
             <div class="cell  one-half  palm-one-whole">
                 <div class="site-logo-wrapper">
-                    <a href="/"><img alt="Capterra Logo" class="site-logo" src="http://cdn2.capterra-static.com/assets/capterra-logo-58c3f648da5f7a9ea4415f6ab8184269.svg" /></a>
+                    <a href="/">
+                        <img alt="Capterra Logo" class="site-logo" src="__FONT__/capterra-logo-58c3f648da5f7a9ea4415f6ab8184269.svg" /></a>
                     <span class="tagline  milli">商业应用市场</span>
                 </div>
             </div>
@@ -13,7 +14,7 @@
                     <ul class="nav  nav-horizontal  nav-block  search-bar-nav">
                         <li class="nav-categories"><a href="{:U('Article/catelist')}" class="ss-list  nav-browse  ">功能列表</a></li>
                         <li class="hide-palm  search-bar-nav-input">
-                            <form accept-charset="UTF-8" action="/search" class="search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                            <form action="{:U('Index/search')}" class="search" method="get">
                                 <input class="search-text-input  main-nav" id="nav_search_lap_and_up" maxlength="200" name="search" type="search" value="" />
                                 <input class="nav-search-button" type="submit" value="搜索" />
                             </form>
@@ -22,7 +23,7 @@
                             <a href="#" class="show-data  ss-search  nav-search  toggle-section-nav"></a>
                         </li>
                         <li class="hide-lap-and-up  search-slidedown  section-nav">
-                            <form accept-charset="UTF-8" action="/search" class="search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                            <form action="{:U('Index/search')}" class="search" method="get">
                                 <input class="search-text-input  main-nav" id="nav_search_palm" maxlength="200" name="search" type="search" value="" />
                                 <input class="nav-search-button" type="submit" value="搜索" />
                             </form>

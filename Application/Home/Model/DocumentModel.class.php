@@ -338,4 +338,10 @@ class DocumentModel extends Model{
 		return $map;
 	}
 
+    /**
+     * @param array $map
+     */
+    public function getDocListMap($map = array() ){
+	    return $this->where($map)->select();
+    }
 }

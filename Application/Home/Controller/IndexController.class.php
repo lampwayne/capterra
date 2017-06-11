@@ -15,23 +15,41 @@ use OT\DataDictionary;
  * 主要获取首页聚合数据
  */
 class IndexController extends HomeController {
+    private $_software_pid = 39;
 
 	//系统首页
     public function index(){
-        $category   = D('Category')->getCateListByPid($this->_software_pid);
-        $feedbacks  = D('Feedback')->recommend();
+        $search = I('search', '', 'trim');
 
-        $this->assign('category',$category);//栏目
-        $this->assign('feedback',$feedbacks);//评论列表
+        if($search){
+            $this->assign('search',$search);//关键词
 
-        $this->display();
+            //查找分类
+            $map = array('pid'=>$this->_software_pid);
+            $map['name|title'] = array('like', "%{$search}%");
+            $category   = D('Category')->getCateListMap($map);
+
+            $this->assign('total',count($category));//栏目
+            $this->assign('category',$category);//栏目
+
+            //查找文档
+            $where = array();
+            $where['name|title'] = array('like', "%{$search}%");
+            $doclist   = D('Document')->getDocListMap($where);
+
+            $this->assign('doctotal',count($doclist));//栏目
+            $this->assign('doclist',$doclist);//栏目
+
+            $this->display('search');
+        }else{
+            $map = array('pid'=>$this->_software_pid);
+            $category   = D('Category')->getCateListMap($map);
+            $feedbacks  = D('Feedback')->recommend();
+
+            $this->assign('category',$category);//栏目
+            $this->assign('feedback',$feedbacks);//评论列表
+
+            $this->display();
+        }
     }
-
-    /**
-     * 查找
-     */
-    public function search(){
-        $this->display();
-    }
-
 }

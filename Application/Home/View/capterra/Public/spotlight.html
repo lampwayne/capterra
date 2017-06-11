@@ -1,0 +1,247 @@
+<div class="toggle-panel  toggle-panel-spotlight">
+    <div class="grid">
+        <div class="cell  seven-tenths  lap-ten-twelfths  push-lap-one-twelfth  palm-one-whole">
+            <!-- Quick Filter Button TEST -->
+            <!-- Quick Filter Button TEST -->
+            <volist name="lists" id="vo">
+                <div id="product-{$vo.id}" class="card  listing">
+                    <div class="grid  grid-slim">
+                        <div class="cell  one-fifth  palm-one-half">
+                            <div class="listing-thumbnail-container  hide-palm">
+                                <a href="{:U('Article/detail', array('id'=>$vo['id']))}"
+                                   class="thumbnail listing-thumbnail">
+                                    <img alt="HubSpot Marketing Automation"
+                                         src="http://cdn0.capterra-static.com/logos/150/2051107-1435339345.png"/>
+                                </a>
+                            </div>
+                            <div class="product-compare-selections hide-palm" data-product-id="117035"
+                                 data-product-name="HubSpot Marketing Automation"
+                                 data-product-logo="http://cdn0.capterra-static.com/logos/150/2051107-1435339345.png">
+                                <span class="limit-tooltip" style="display: none;">You have selected the maximum of 4 products to compare</span>
+                                <input type="checkbox" class="toggle-product-compare"
+                                       id="toggle-product-compare-117035" data-product-id="117035"
+                                       data-product-name="HubSpot Marketing Automation"
+                                       data-product-logo="http://cdn0.capterra-static.com/logos/150/2051107-1435339345.png">
+                                <label class="checkbox toggle-product-compare-label"
+                                       for="toggle-product-compare-117035">Add to Compare</label>
+                            </div>
+                        </div>
+                        <div class="cell  four-fifths  palm-one-whole">
+                            <div class="grid">
+                                <div class="cell  seven-tenths  palm-one-whole">
+                                    <h2 class="listing-name">
+                                        <a href="{:U('Article/detail', array('id'=>$vo['id']))}">{$vo.title}</a>
+                                    </h2>
+                                    <h3 class="zeta  listing-vendor  color-gray">{$vo.company_name}</h3>
+                                    <div class="review-information">
+                                        <div class="reviews" data-rating="4.5/5 - 1052">
+                                            <a href="{:U('Article/detail', array('id'=>$vo['id']))}"
+                                               class="reviews-stars">
+                                                                <span class="ss-star"><span
+                                                                        class="ss-star"></span></span>
+                                                <span class="ss-star"><span
+                                                        class="ss-star"></span></span>
+                                                <span class="ss-star"><span
+                                                        class="ss-star"></span></span>
+                                                <span class="ss-star"><span
+                                                        class="ss-star"></span></span>
+                                                <span class="ss-star"><span class="ss-halfstar"></span></span>
+                                            </a>
+                                            <a href="{:U('Article/detail', array('id'=>$vo['id']))}"
+                                               class="reviews-count milli">({$vo.view} reviews)</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell  three-tenths  palm-one-whole">
+                                    <div class="grid  grid-reverse">
+                                        <div class="listing-buttons cell  one-whole">
+                                            <a href="{:U('Article/detail', array('id'=>$vo['id']))}"
+                                               class="button  button-tiny  button-full  button-secondary">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell  one-whole">
+                                    <p class="listing-description  milli">
+                                        {$vo.description}
+                                        <a href="{:U('Article/detail', array('id'=>$vo['id']))}"
+                                           class="spotlight-link">View Profile</a>
+                                    </p>
+                                    <p class="mobile-listing-desc  milli  hide">
+                                        {$vo.description}
+                                        <a href="{:U('Article/detail', array('id'=>$vo['id']))}"
+                                           class="spotlight-link">View Profile</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </volist>
+
+        </div>
+
+        <div class="cell  three-tenths  lap-one-half  push-lap-one-quarter  palm-one-whole">
+            <div class="card  card-secondary">
+                <h2 class="delta">
+                    <i class="epsilon  ss-filter  color-blue  icon-lead"></i>筛选
+                    <span class="subheading">(25)</span>
+                </h2>
+                <form accept-charset="UTF-8"
+                      action="{:U('Article/lists', array('category'=>$category['id']))}"
+                      id="filter_form" method="get">
+                    <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden"
+                                                                          value="&#x2713;"/></div>
+                    <div class="base-margin-bottom">
+                        <div class="base-margin-bottom">
+                            <h3 class="zeta  no-margin-bottom">应用评分</h3>
+                            <ul class="form-option-list  no-margin-bottom  reviews-stars">
+                                <li>
+                                    <input class="checkbox" id="review_stars_4" name="review_stars"
+                                           type="checkbox" value="4"/>
+                                    <label for="review_stars_4">
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"></span>
+                                        4 &amp; 以上 (12)
+                                    </label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="review_stars_3" name="review_stars"
+                                           type="checkbox" value="3"/>
+                                    <label for="review_stars_3">
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"></span>
+                                        <span class="ss-star"></span>
+                                        3 &amp; 以上 (13)
+                                    </label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="review_stars_2" name="review_stars"
+                                           type="checkbox" value="2"/>
+                                    <label for="review_stars_2">
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"></span>
+                                        <span class="ss-star"></span>
+                                        <span class="ss-star"></span>
+                                        2 &amp; 以上 (13)
+                                    </label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="review_stars_1" name="review_stars"
+                                           type="checkbox" value="1"/>
+                                    <label for="review_stars_1">
+                                        <span class="ss-star"><span class="ss-star"></span></span>
+                                        <span class="ss-star"></span>
+                                        <span class="ss-star"></span>
+                                        <span class="ss-star"></span>
+                                        <span class="ss-star"></span>
+                                        1 &amp; 以上 (13)
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3 class="zeta  no-margin-bottom">用户数</h3>
+                        <select id="users" name="users">
+                            <option value="">全 部</option>
+                            <option value="1">1</option>
+                            <option value="2">2-9</option>
+                            <option value="4">10-49</option>
+                            <option value="8">50-99</option>
+                            <option value="16">100-499</option>
+                            <option value="32">500-999</option>
+                            <option value="64">1000+</option>
+                        </select>
+                    </div>
+                    <div class="base-margin-bottom">
+                        <h3 class="zeta  no-margin-bottom">安装方式</h3>
+                        <ul class="form-option-list  no-margin-bottom  deployment">
+                            <li>
+                                <input class="checkbox" id="platform_1" name="platform[1]"
+                                       type="checkbox" value="8"/>
+                                <label for="platform_1">基于网络</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="platform_2" name="platform[2]"
+                                       type="checkbox" value="23"/>
+                                <label for="platform_2">本地安装</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="base-margin-bottom">
+                        <h3 class="zeta  no-margin-bottom">功能</h3>
+                        <ul class="form-option-list  features">
+                            <li>
+                                <input class="checkbox" id="feature_0" name="feature[0]" type="checkbox"
+                                       value="25617"/>
+                                <label for="feature_0">Analytics</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="feature_1" name="feature[1]" type="checkbox"
+                                       value="25620"/>
+                                <label for="feature_1">Collaborative Writing</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="feature_2" name="feature[2]" type="checkbox"
+                                       value="25621"/>
+                                <label for="feature_2">Comment Moderation</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="feature_3" name="feature[3]" type="checkbox"
+                                       value="25625"/>
+                                <label for="feature_3">File Sharing</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="feature_4" name="feature[4]" type="checkbox"
+                                       value="25624"/>
+                                <label for="feature_4">Group Posting</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="feature_5" name="feature[5]" type="checkbox"
+                                       value="25623"/>
+                                <label for="feature_5">Post Management</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="feature_6" name="feature[6]" type="checkbox"
+                                       value="25622"/>
+                                <label for="feature_6">Search</label>
+                            </li>
+                            <li>
+                                <input class="checkbox" id="feature_7" name="feature[7]" type="checkbox"
+                                       value="25619"/>
+                                <label for="feature_7">WYSIWYG Rich Text Editing</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="product-filter-actions">
+                        <input class="button  button-full button-small  button-secondary" name="commit"
+                               type="submit" value="筛选搜索结果"/>
+                        <a href="/blog-software"
+                           class="product-filter-reset  micro  ss-replay">重置所有筛选</a>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="island  island-interior island-outline">
+                <h2 class="delta  half-margin-bottom">相关关键词</h2>
+                <ul class="card-list">
+                    <li><a href="/content-management-software" class="ss-navigateright">Content
+                        Management</a></li>
+                    <li><a href="/content-marketing-software" class="ss-navigateright">Content
+                        Marketing</a></li>
+                    <li><a href="/seo-software" class="ss-navigateright">SEO</a></li>
+                    <li><a href="/website-builder-software" class="ss-navigateright">Website Builder</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -24,7 +24,10 @@ class ArticleController extends HomeController {
 
         $map = array('pid'=>$this->_software_pid);
         if(I('get.keyword', '', 'trim')){
-            $map['name|title'] = I('get.keyword', '', 'trim');
+            $keyword = I('get.keyword', '', 'trim');
+            $map['name|title'] = $keyword;
+
+            $this->assign('keyword', $keyword);
         }
 
         $res = $model->getCateListMap($map);
@@ -77,6 +80,17 @@ class ArticleController extends HomeController {
 		/* 模板赋值并渲染模板 */
 		$this->assign('category', $category);
 		$this->assign('lists', $list);
+
+		//相关分类
+        $id = I('get.category', 0);
+        $id = $id ? $id : 0;
+
+        $map = array();
+        $map['pid'] = $this->_software_pid;
+        $map['id']  = array('neq', $id);
+        $relatedCates = D('Category')->where($map)->limit(5)->select();
+        $this->assign('relatedCates', $relatedCates);
+
 		$this->display($category['template_lists']);
 	}
 
@@ -118,20 +132,29 @@ class ArticleController extends HomeController {
 		$this->assign('category', $category);
 		$this->assign('info', $info);
 		$this->assign('page', $p); //页码Article/article/detail
+
+        //获取评论列表
+        $reviewModel = D('review');
+        $reviewList = $reviewModel->where(array('id' => $id))->select();
+        $this->assign('reviewList', $reviewList);
+
 		$this->display($tmpl);
 	}
 
     /* 获取当前分类文档列表 */
 	private function getlists($category){
-	    $service_rate = I('get.service_rate');//应用评分
-	    $service_rate = I('get.service_rate');//用户数
-	    $service_rate = I('get.service_rate');//安装方式
-	    $service_rate = I('get.service_rate');//功能
+	    $review_stars = I('get.review_stars');//应用评分
+	    $users = I('get.users');//用户数
+	    $platformArr = I('get.platform');//安装方式
+        $featureArr = I('get.feature');//功能
 
         $Document = D('Document');
 
         $map = array('category_id'=>$category);
-        if($service_rate) $map['service_rate'] = array('egt', $service_rate);
+        if($review_stars) $map['review_stars'] = array('egt', $review_stars);
+        if($users) $map['view'] = array('egt', $users);
+        if($platformArr) $map['platform'] = array('in', $platformArr);
+        if($featureArr) $map['feature'] = array('in', $featureArr);
 
         $list = $Document->where($map)->select($category['id']);
         if(false === $list){

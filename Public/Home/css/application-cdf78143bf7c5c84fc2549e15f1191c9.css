@@ -2,8 +2,8 @@
     font-family: 'Lato';
     font-style: normal;
     font-weight: 300;
-    src: url(../images/v13-latin_latin-ext-300-e3a35b1f5ee7e9ab3d86571690fa0b4f.eot);
-    src: local("Lato Light"), local("Lato-Light"), url(../images/v13-latin_latin-ext-300.eot?#iefix) format("embedded-opentype"), url(../font/v13-latin_latin-ext-300-9328ebddaacd2c6f84a95b51e0d1cb46.woff2) format("woff2"), url(../font/v13-latin_latin-ext-300-a78831a17a25abc3721bd67ec2191f0e.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-300.ttf) format("truetype"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-300.svg#Lato) format("svg")
+    src: url(../font/v13-latin_latin-ext-300-e3a35b1f5ee7e9ab3d86571690fa0b4f.eot);
+    src: local("Lato Light"), local("Lato-Light"), url(../font/v13-latin_latin-ext-300.eot?#iefix) format("embedded-opentype"), url(../font/v13-latin_latin-ext-300-9328ebddaacd2c6f84a95b51e0d1cb46.woff2) format("woff2"), url(../font/v13-latin_latin-ext-300-a78831a17a25abc3721bd67ec2191f0e.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-300.ttf) format("truetype"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-300.svg#Lato) format("svg")
 }
 
 @font-face {
@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: 700;
     src: url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700-661148a573ce9340117ae69384dd9e46.eot);
-    src: local("Lato Bold"), local("Lato-Bold"), url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700.eot?#iefix) format("embedded-opentype"), url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700-20434804c59b3db1c982343fe26b3108.woff2) format("woff2"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700-d32dd000498b0784d334b33241587699.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700.ttf) format("truetype"), url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700.svg#Lato) format("svg")
+    src: local("Lato Bold"), local("Lato-Bold"), url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700.eot?#iefix) format("embedded-opentype"), url(../font/v13-latin_latin-ext-700-20434804c59b3db1c982343fe26b3108.woff2) format("woff2"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700-d32dd000498b0784d334b33241587699.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700.ttf) format("truetype"), url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-700.svg#Lato) format("svg")
 }
 
 @font-face {
@@ -27,13 +27,13 @@
     font-style: normal;
     font-weight: 900;
     src: url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900-01c57e7f03dc154276bbc44fb8de97f8.eot);
-    src: local("Lato Black"), local("Lato-Black"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900.eot?#iefix) format("embedded-opentype"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900-895dc25c3c9081c39ab681372bb0e5a6.woff2) format("woff2"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900-3c7b35a7b1567d47f73db61f9803c3d5.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900.ttf) format("truetype"), url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900.svg#Lato) format("svg")
+    src: local("Lato Black"), local("Lato-Black"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900.eot?#iefix) format("embedded-opentype"), url(../font/v13-latin_latin-ext-900-895dc25c3c9081c39ab681372bb0e5a6.woff2) format("woff2"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900-3c7b35a7b1567d47f73db61f9803c3d5.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900.ttf) format("truetype"), url(http://cdn2.capterra-static.com/assets/google-fonts/lato/v13-latin_latin-ext-900.svg#Lato) format("svg")
 }
 
 @font-face {
     font-family: "SSSocialRegular";
     src: url(http://cdn1.capterra-static.com/assets/symbolset/social-regular/ss-social-regular-99f4c1dc2576776d94e1c37515cb8f9f.eot);
-    src: url(http://cdn2.capterra-static.com/assets/symbolset/social-regular/ss-social-regular.eot?#iefix) format("embedded-opentype"), url(http://cdn1.capterra-static.com/assets/symbolset/social-regular/ss-social-regular-8739c21c9e7b800fadfb9f75d5bf3d7b.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/symbolset/social-regular/ss-social-regular-fed17abadf847b51a716a0e8cc586107.ttf) format("truetype"), url(http://cdn2.capterra-static.com/assets/symbolset/social-regular/ss-social-regular.svg#SSSocialRegular) format("svg");
+    src: url(http://cdn2.capterra-static.com/assets/symbolset/social-regular/ss-social-regular.eot?#iefix) format("embedded-opentype"), url(../font/ss-social-regular-8739c21c9e7b800fadfb9f75d5bf3d7b.woff) format("woff"), url(http://cdn1.capterra-static.com/assets/symbolset/social-regular/ss-social-regular-fed17abadf847b51a716a0e8cc586107.ttf) format("truetype"), url(http://cdn2.capterra-static.com/assets/symbolset/social-regular/ss-social-regular.svg#SSSocialRegular) format("svg");
     font-weight: normal;
     font-style: normal
 }
@@ -276,8 +276,8 @@ html:hover [class^="ss-"] {
 
 @font-face {
     font-family: "SSStandard";
-    src: url(../images/ss-standard-0a9fa6cf7f44ea6d119b7f21013d73cf.eot);
-    src: url(../images/ss-standard.eot?#iefix) format("embedded-opentype"), url(../images/ss-standard-b14612d77f14fec2dee1a677b28c7f24.woff) format("woff"), url(../images/ss-standard-0e9013a34d4f6e6440c51e2165a229e4.ttf) format("truetype"),url(../images/ss-standard.svg#SSStandard) format("svg");
+    src: url(../font/ss-standard-0a9fa6cf7f44ea6d119b7f21013d73cf.eot);
+    src: url(../font/ss-standard.eot?#iefix) format("embedded-opentype"), url(../font/ss-standard-b14612d77f14fec2dee1a677b28c7f24.woff) format("woff"), url(../images/ss-standard-0e9013a34d4f6e6440c51e2165a229e4.ttf) format("truetype"),url(../images/ss-standard.svg#SSStandard) format("svg");
     font-weight: normal;
     font-style: normal
 }
