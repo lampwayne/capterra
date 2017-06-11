@@ -18,12 +18,11 @@ class IndexController extends HomeController {
 
 	//系统首页
     public function index(){
-        $category = D('Category')->getTree();
-        $feedbacks    = D('Feedback')->recommend();
+        $category   = D('Category')->getCateListByPid($this->_software_pid);
+        $feedbacks  = D('Feedback')->recommend();
 
         $this->assign('category',$category);//栏目
         $this->assign('feedback',$feedbacks);//评论列表
-        $this->assign('page',D('Document')->page);//分页
 
         $this->display();
     }

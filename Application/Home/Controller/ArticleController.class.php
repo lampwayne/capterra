@@ -14,33 +14,44 @@ namespace Home\Controller;
  * 文档模型列表和详情
  */
 class ArticleController extends HomeController {
+    private $_software_pid = 39;
 
     /**
      * 分类列表页
      */
     public function catelist(){
         $model = D('Category');
-        $res = $model->getTree();
-        $hotlist = $model->getHot();
 
-        $catelist = array();
+        $map = array('pid'=>$this->_software_pid);
+        if(I('get.keyword', '', 'trim')){
+            $map['name|title'] = I('get.keyword', '', 'trim');
+        }
+
+        $res = $model->getCateListMap($map);
+        $catelist = $numcatelist = array();
         if($res){
             $hotTotal = 0;
             foreach ($res as $v){
                 $cKey = strtoupper(substr($v['name'], 0, 1));
                 if(is_numeric($cKey)){
-                    $cKey = '#';
+                    $numcatelist[] = $v;
+                    continue;
+                }else{
+                    //分类加首字母索引
+                    $catelist[$cKey][] = $v;
                 }
-
-                //分类加首字母索引
-                $catelist[$cKey][] = $v;
             }
 
             ksort($catelist);
         }
 
         $this->assign('catelist', $catelist);
+        $this->assign('numcatelist', $numcatelist);
+
+        //热门分类
+        $hotlist = $model->getHot($this->_software_pid);
         $this->assign('hotlist', $hotlist);
+
         $this->display();
     }
 
