@@ -1,20 +1,35 @@
 <?php
-// +----------------------------------------------------------------------
-// | OneThink [ WE CAN DO IT JUST THINK IT ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2013 http://www.onethink.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Author: 麦当苗儿 <zuojiazi@vip.qq.com> <http://www.zjzit.cn>
-// +----------------------------------------------------------------------
-
-namespace Home\Controller;
-
 /**
  * 文档模型控制器
  * 文档模型列表和详情
  */
+namespace Home\Controller;
 class ArticleController extends HomeController {
     private $_software_pid = 39;
+
+    /**
+     * 厂商入驻
+     */
+    public function addappinfo(){
+        if(IS_POST){
+            $applicant = I('post.');
+            $linkman = I('linkman');//联系人
+            $wechat = I('wechat');//微信
+            $email = I('email');//Email
+            $mobile = I('mobile');//电话
+            $company = I('company');//公司名
+            $website = I('website');//网址
+            $product = I('product_name');//产品名
+            $catename = I('software_type');//应用类型
+            $catedesc = I('description');//应用简介
+
+            
+
+            $flag = D('')->add();
+        }
+
+        $this->display();
+    }
 
     /**
      * 分类列表页
