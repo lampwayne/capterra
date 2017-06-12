@@ -7,8 +7,9 @@
             <div class="stack-content">
                 <ul class="breadcrumbs  site-breadcrumbs  milli">
                     <li class="ss-home"><a href="/">首页</a></li>
-                    <li class="ss-navigateright"><a
-                            href="{:U('Article/lists', array('category'=>$info['category_id']))}">分类名</a></li>
+                    <li class="ss-navigateright">
+                        <a href="{:U('Article/lists', array('category'=>$info['category_id']))}">分类名</a>
+                    </li>
                     <li class="ss-navigateright">{$info.title}</li>
                 </ul>
             </div>
@@ -30,7 +31,7 @@
                             <div class="quarter-margin-bottom">
                                 <h1 class="beta  no-margin-bottom" itemprop="name">{$info.title}</h1>
                                 <h2 class="spotlight-vendor-name  zeta  color-gray  weight-normal  half-margin-bottom"
-                                    itemprop="author" itemscope="" itemtype="http://schema.org/Organization">by <span
+                                    itemprop="author" itemscope="" itemtype="{$info.company_site}">by <span
                                         itemprop="name">{$info.company_name}</span></h2>
                             </div>
                             <div class="half-margin-bottom" itemscope="" itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating">
@@ -111,9 +112,7 @@
                         <div class="island  island-thin  island-light">
                             <div class="spotlight-target">
                                 <h2 class="epsilon  quarter-margin-bottom">谁在使用?</h2>
-                                <p class="epsilon"><i>{软件目标用户字段}Workable has customers in 88 countries around the globe.
-                                    Suitable for any growing business we have a large proportion of customers in the
-                                    tech, finance and hospitality industries.</i></p>
+                                <p class="epsilon"><i>{$info.description}</i></p>
                             </div>
                         </div>
                     </div>
@@ -121,25 +120,26 @@
                         <hr class="rule  rule-half  color-white">
                         <h2 class="epsilon  average-ratings-heading"><i class="ss-star  icon-lead  zeta"></i>应用评分</h2>
                         <!--  If a vendor hasnt opted out of reviews and if reviews arent empty show review count -->
-                        <a href="#reviews" class="no-underline  scroll-to-reviews  border-left-dotted"><i
-                                class="ss-chat  icon-lead"></i>186 评测</a>
+                        <a href="#reviews" class="no-underline  scroll-to-reviews  border-left-dotted">
+                            <i class="ss-chat  icon-lead"></i>186 评测
+                        </a>
                         <ul class="check-list  check-list-slim  check-list-border-bottom  half-margin-bottom">
                             <li>
                                 <div class="grid  grid-reverse">
                                     <div class="cell  one-half">
-                    <span class="reviews-stars  average-rating-overall">
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-halfstar"></span></span>
+                                        <span class="reviews-stars  average-rating-overall">
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-halfstar"></span></span>
 
-                        <span class='color-gray  milli  rating-decimal'>
-                            <span>4.5</span>
-                            /
-                            <span>5</span>
-                        </span>
-                    </span>
+                                            <span class='color-gray  milli  rating-decimal'>
+                                                <span>4.5</span>
+                                                /
+                                                <span>5</span>
+                                            </span>
+                                        </span>
                                     </div>
                                     <div class="cell  one-half">
                                         <span class="weight-semibold">整体</span>
@@ -149,19 +149,19 @@
                             <li>
                                 <div class="grid  grid-reverse">
                                     <div class="cell  one-half">
-                    <span class="reviews-stars  average-rating-ease-of-use">
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-halfstar"></span></span>
+                                        <span class="reviews-stars  average-rating-ease-of-use">
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-halfstar"></span></span>
 
-                        <span class='color-gray  milli  rating-decimal'>
-                            <span>4.5</span>
-                            /
-                            <span>5</span>
-                        </span>
-                    </span>
+                                            <span class='color-gray  milli  rating-decimal'>
+                                                <span>4.5</span>
+                                                /
+                                                <span>5</span>
+                                            </span>
+                                        </span>
                                     </div>
                                     <div class="cell  one-half">
                                         <span class="weight-semibold">易用性 </span>
@@ -171,19 +171,19 @@
                             <li>
                                 <div class="grid  grid-reverse">
                                     <div class="cell  one-half">
-                    <span class="reviews-stars  average-rating-customer-service">
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-star"></span></span>
-                        <span class="ss-star"><span class="ss-halfstar"></span></span>
+                                        <span class="reviews-stars  average-rating-customer-service">
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-star"></span></span>
+                                            <span class="ss-star"><span class="ss-halfstar"></span></span>
 
-                        <span class='color-gray  milli  rating-decimal'>
-                            <span>4.5</span>
-                            /
-                            <span>5</span>
-                        </span>
-                    </span>
+                                            <span class='color-gray  milli  rating-decimal'>
+                                                <span>4.5</span>
+                                                /
+                                                <span>5</span>
+                                            </span>
+                                        </span>
                                     </div>
                                     <div class="cell  one-half">
                                         <span class="weight-semibold">用户服务</span>
@@ -293,7 +293,7 @@
                         <hr class="rule  rule-half  color-white">
                         <h2 class="epsilon"><i class="ss-info  icon-lead  zeta"></i>关于应用</h2>
                         <div class="base-margin-bottom">
-                            <p>{$info.description}</p>
+                            <p>{$info.content}</p>
                         </div>
                         <hr class="rule  rule-half  color-white">
                         <div class="media-viewer">
@@ -342,45 +342,45 @@
                                 <div class="cell  one-sixth  palm-one-quarter">
                                     <a href="#" data-position="1" class="media-viewer-thumbnail-container">
                                         <div class="media-viewer-thumbnail">
-                  <span itemprop="thumbnailUrl">
-                    <img alt="41195-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41195-thumb.png"/>
-                  </span>
+                                          <span itemprop="thumbnailUrl">
+                                            <img alt="41195-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41195-thumb.png"/>
+                                          </span>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="cell one-sixth palm-one-quarter">
                                     <a href="#" data-position="2" class="media-viewer-thumbnail-container">
                                         <div class="media-viewer-thumbnail">
-                  <span itemprop="thumbnailUrl">
-                    <img alt="41196-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41196-thumb.png"/>
-                  </span>
+                                          <span itemprop="thumbnailUrl">
+                                            <img alt="41196-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41196-thumb.png"/>
+                                          </span>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="cell  one-sixth  palm-one-quarter">
                                     <a href="#" data-position="3" class="media-viewer-thumbnail-container">
                                         <div class="media-viewer-thumbnail">
-                  <span itemprop="thumbnailUrl">
-                    <img alt="41197-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41197-thumb.png"/>
-                  </span>
+                                          <span itemprop="thumbnailUrl">
+                                            <img alt="41197-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41197-thumb.png"/>
+                                          </span>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="cell  one-sixth  palm-one-quarter">
                                     <a href="#" data-position="4" class="media-viewer-thumbnail-container">
                                         <div class="media-viewer-thumbnail">
-                  <span itemprop="thumbnailUrl">
-                    <img alt="41198-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41198-thumb.png"/>
-                  </span>
+                                          <span itemprop="thumbnailUrl">
+                                            <img alt="41198-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41198-thumb.png"/>
+                                          </span>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="cell  one-sixth  palm-one-quarter">
                                     <a href="#" data-position="5" class="media-viewer-thumbnail-container">
                                         <div class="media-viewer-thumbnail">
-                  <span itemprop="thumbnailUrl">
-                    <img alt="41202-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41202-thumb.png"/>
-                  </span>
+                                          <span itemprop="thumbnailUrl">
+                                            <img alt="41202-thumb" src="http://cdn0.capterra-static.com/screenshots/2091449/41202-thumb.png"/>
+                                          </span>
                                         </div>
                                     </a>
                                 </div>
@@ -568,7 +568,8 @@
                                                 </div>
                                             </div>
                                             <div class="review-comments  color-text">
-                                                <p><strong>评论: </strong>{$vo.like_most}</p>
+                                                <p><strong>优点: </strong>{$vo.like_most}</p>
+                                                <p><strong>缺点: </strong>{$vo.like_most}</p>
                                             </div>
                                         </div>
                                     </div>
