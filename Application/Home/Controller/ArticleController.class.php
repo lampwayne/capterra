@@ -23,7 +23,13 @@ class ArticleController extends HomeController {
             $catename = I('software_type');//应用类型
             $catedesc = I('description');//应用简介
 
-            
+            //查看分类 没有则添加
+            $cateModel = D('');
+            $cateinfo = $cateModel->where()->find();
+            if(!$cateinfo){
+                $cateinfo = array();
+                $cate_id = $cateModel->add($cateinfo);
+            }
 
             $flag = D('')->add();
         }
