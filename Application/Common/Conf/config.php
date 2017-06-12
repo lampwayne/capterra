@@ -39,10 +39,10 @@ return array(
 
     /* 数据库配置 */
     'DB_TYPE'   => 'mysqli', // 数据库类型
-    'DB_HOST'   => '127.0.0.1', // 服务器地址
-    'DB_NAME'   => 'capterra', // 数据库名
-    'DB_USER'   => 'root', // 用户名
-    'DB_PWD'    => 'root',  // 密码
+    'DB_HOST'   => 'rdsqyqbnmnef3ea.mysql.rds.aliyuncs.com', // 服务器地址
+    'DB_NAME'   => 'ghorse', // 数据库名
+    'DB_USER'   => 'ghorse', // 用户名
+    'DB_PWD'    => 'gh112233',  // 密码
     'DB_PORT'   => '3306', // 端口
     'DB_PREFIX' => 'capterra_', // 数据库表前缀
 
