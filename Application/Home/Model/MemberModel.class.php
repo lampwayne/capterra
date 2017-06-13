@@ -27,6 +27,20 @@ class MemberModel extends Model{
         array('status', 1, self::MODEL_INSERT),
     );
 
+    public function vendors($info){
+        if(empty($info)) return false;
+        if(isset($info['id'])) unset($info['id']);
+
+        $user = $this->create($info);
+        $user['uid'] = $info['id'];
+        if(!$this->add($user)){
+            $this->error = '前台用户信息注册失败，请重试！';
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * 登录指定用户
      * @param  integer $uid 用户ID

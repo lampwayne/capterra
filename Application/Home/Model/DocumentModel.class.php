@@ -15,6 +15,8 @@ use Think\Page;
  * 文档基础模型
  */
 class DocumentModel extends Model{
+    const APP_CATE_PID = 39;
+    const ARTICLE_MODEL_ID = 2;
 
 	/* 自动验证规则 */
 	protected $_validate = array(
@@ -343,5 +345,24 @@ class DocumentModel extends Model{
      */
     public function getDocListMap($map = array() ){
 	    return $this->where($map)->select();
+    }
+
+    /**
+     * 添加应用信息
+     * @param $appinfo
+     */
+    public function addApp($appinfo){
+        $software_type = $appinfo['software_type'];
+        $cateinfo = D('category')->where(['title'=>$software_type])->find();
+        if(!$cateinfo){
+            $cateArr = array();
+            $cateArr['title']   = $software_type;
+            $cateArr['pid']     = self::APP_CATE_PID;
+            $cateArr['model_id']     = self::ARTICLE_MODEL_ID;
+            $cateArr['name']    = hanzi_to_pinyin($software_type);
+            $cateArr['description'] = 2;
+        }
+        $dataArr = array();
+
     }
 }

@@ -18,8 +18,56 @@ class UserController extends HomeController {
 
 	/* 用户中心首页 */
 	public function index(){
-		
+		$this->display();
 	}
+
+    /**
+     * 厂商入驻
+     */
+    public function vendors(){
+        if(!C('USER_ALLOW_REGISTER')) $this->error('注册已关闭');
+        if(!IS_POST) $this->error('非法请求');
+
+        //注册
+        $email      = I('email', '', 'trim');
+        $username   = $email;
+        $password   = 'youhuohuo1234';
+
+        $User = new UserApi;
+        $uid = $User->register($username, $password, $email);
+        if(!$uid){
+            $this->error('入驻失败！');
+        }
+        $info = $User->info($uid);
+
+        //登录
+        $Member = D('Member');
+
+        $user['nickname']   = $info[1];
+        $user['status']     = 2;
+        $user['linkman']    = I('linkman', '', 'trim');
+        $user['wechat']     = I('wechat', '', 'trim');
+        $user['email']      = $email;
+        $user['mobile']     = I('mobile', '', 'trim');
+        $user['company']    = I('company', '', 'trim');
+        $user['website']    = I('website', '', 'trim');
+        $flag = $Member->vendors($info);
+        if(!$flag){
+            $this->error('入驻失败！');
+        }
+
+        //产品录入
+        $appinfo = array();
+        $appinfo['title'] = I('product_name', '', 'trim');;
+        $appinfo['software_type'] = I('software_type', '', 'trim');;
+        $appinfo['description'] = I('description', '', 'trim');;
+        $flag = D('Document')->addApp($appinfo);
+        if(!$flag){
+            $this->error('入驻失败！');
+        }
+
+        $this->success('信息已提交,管理员会将审核结果发送您的邮箱,敬请等待！',U('Index/index'));
+    }
 
 	/* 注册页面 */
 	public function register($username = '', $password = '', $repassword = '', $email = '', $verify = ''){

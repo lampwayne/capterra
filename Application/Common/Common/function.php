@@ -950,3 +950,103 @@ function get_stemma($pids,Model &$model, $field='id'){
     }
     return $collection;
 }
+
+/**
+ * Ascii转拼音
+ * @param $asc
+ * @param $pyarr
+ */
+function asc_to_pinyin($asc,&$pyarr) {
+    if($asc < 128)return chr($asc);
+    elseif(isset($pyarr[$asc]))return $pyarr[$asc];
+    else {
+        foreach($pyarr as $id => $p) {
+            if($id >= $asc)return $p;
+        }
+    }
+}
+/**
+ * gbk转拼音
+ * @param $txt
+ */
+function gbk_to_pinyin($txt) {
+    $txt = iconv('UTF-8','GBK',$txt);
+
+    $l = strlen($txt);
+    $i = 0;
+    $pyarr = array();
+    $py = array();
+    $filename = LANG_PATH.'gb-pinyin.table';
+    $fp = fopen($filename,'r');
+    while(!feof($fp)) {
+        $p = explode("-",fgets($fp,32));
+        $pyarr[intval($p[1])] = trim($p[0]);
+    }
+    fclose($fp);
+    ksort($pyarr);
+    while($i<$l) {
+        $tmp = ord($txt[$i]);
+        if($tmp>=128) {
+            $asc = abs($tmp*256+ord($txt[$i+1])-65536);
+            $i = $i+1;
+        } else $asc = $tmp;
+        $py[] = asc_to_pinyin($asc,$pyarr);
+        $i++;
+    }
+    return $py;
+}
+
+/**
+ * 汉字转拼音
+ * @param $txt
+ * @return string
+ */
+function hanzi_to_pinyin($txt){
+    $str = '';
+    $pinyinArr = gbk_to_pinyin($txt);
+    if($pinyinArr){
+        $str = implode('', $pinyinArr);
+    }
+
+    return $str;
+}
+/**
+ * utf8转gbk
+ * @param $utfstr
+ */
+function utf8_to_gbk($utfstr) {
+    global $UC2GBTABLE;
+    $okstr = '';
+    if(empty($UC2GBTABLE)) {
+        $filename = CODETABLEDIR.'gb-unicode.table';
+        $fp = fopen($filename, 'rb');
+        while($l = fgets($fp,15)) {
+            $UC2GBTABLE[hexdec(substr($l, 7, 6))] = hexdec(substr($l, 0, 6));
+        }
+        fclose($fp);
+    }
+    $okstr = '';
+    $ulen = strlen($utfstr);
+    for($i=0; $i<$ulen; $i++) {
+        $c = $utfstr[$i];
+        $cb = decbin(ord($utfstr[$i]));
+        if(strlen($cb)==8) {
+            $csize = strpos(decbin(ord($cb)),'0');
+            for($j = 0; $j < $csize; $j++) {
+                $i++;
+                $c .= $utfstr[$i];
+            }
+            $c = utf8_to_unicode($c);
+            if(isset($UC2GBTABLE[$c])) {
+                $c = dechex($UC2GBTABLE[$c]+0x8080);
+                $okstr .= chr(hexdec($c[0].$c[1])).chr(hexdec($c[2].$c[3]));
+            } else {
+                $okstr .= '&#'.$c.';';
+            }
+        } else {
+            $okstr .= $c;
+        }
+    }
+    $okstr = trim($okstr);
+    return $okstr;
+}
