@@ -6,37 +6,7 @@
 namespace Home\Controller;
 class ArticleController extends HomeController {
     private $_software_pid = 39;
-
-    /**
-     * 厂商入驻
-     */
-    public function addappinfo(){
-        if(IS_POST){
-            $applicant = I('post.');
-            $linkman = I('linkman');//联系人
-            $wechat = I('wechat');//微信
-            $email = I('email');//Email
-            $mobile = I('mobile');//电话
-            $company = I('company');//公司名
-            $website = I('website');//网址
-            $product = I('product_name');//产品名
-            $catename = I('software_type');//应用类型
-            $catedesc = I('description');//应用简介
-
-            //查看分类 没有则添加
-            $cateModel = D('');
-            $cateinfo = $cateModel->where()->find();
-            if(!$cateinfo){
-                $cateinfo = array();
-                $cate_id = $cateModel->add($cateinfo);
-            }
-
-            $flag = D('')->add();
-        }
-
-        $this->display();
-    }
-
+    
     /**
      * 分类列表页
      */
